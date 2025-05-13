@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePass - Generador de Contraseñas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SecurePass 🔒</h1>
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        </header>
+
+        <div class="glass-card">
+            <h2>Generador de Contraseñas</h2>
+            <div class="password-display">
+                <input type="text" id="password-output" readonly>
+                <button id="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+
+            <div class="controls">
+                <div class="range-control">
+                    <label for="length">Longitud: <span id="length-value">12</span></label>
+                    <input type="range" id="length" min="6" max="32" value="12">
+                </div>
+
+                <div class="checkboxes">
+                    <label><input type="checkbox" id="uppercase" checked> Mayúsculas (A-Z)</label>
+                    <label><input type="checkbox" id="numbers" checked> Números (0-9)</label>
+                    <label><input type="checkbox" id="symbols" checked> Símbolos (!@#)</label>
+                </div>
+
+                <button id="generate-btn" class="glow-btn">Generar Contraseña</button>
+            </div>
+
+            <div class="strength-meter">
+                <div class="strength-bar"></div>
+                <span id="strength-text">Seguridad: Media</span>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2>Guardar Credencial</h2>
+            <form id="save-credential-form">
+                <div class="form-group">
+                    <label for="credential-name">Nombre del Servicio:</label>
+                    <input type="text" id="credential-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="credential-username">Usuario/Email:</label>
+                    <input type="text" id="credential-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="credential-password">Contraseña:</label>
+                    <input type="text" id="credential-password" required>
+                </div>
+                <button type="submit" class="glow-btn">Guardar Credencial</button>
+            </form>
+        </div>
+
+        <div class="glass-card">
+            <h2>Tus Credenciales Guardadas</h2>
+            <div class="credential-actions">
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <button id="export-btn"><i class="fas fa-file-export"></i> Exportar</button>
+            </div>
+
+            <div class="credentials-list" id="credentials-list">
+                <!-- Credenciales se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>DESARROLLADO POR ERICK PROGRAMADOR</p>
+    </footer>
+
+    <div id="toast" class="toast">¡Contraseña copiada!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
